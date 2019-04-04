@@ -1,0 +1,28 @@
+PODS:
+  - Fritz (3.2.0):
+    - Fritz/ManagedModel (= 3.2.0)
+  - Fritz/Core (3.2.0)
+  - Fritz/CoreMLHelpers (3.2.0)
+  - Fritz/ManagedModel (3.2.0):
+    - Fritz/Core
+  - Fritz/Vision (3.2.0):
+    - Fritz/Core
+    - Fritz/CoreMLHelpers
+    - Fritz/ManagedModel
+  - Fritz/VisionSegmentationModel/People (3.2.0):
+    - Fritz/Vision
+
+DEPENDENCIES:
+  - Fritz
+  - Fritz/VisionSegmentationModel/People
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Fritz
+
+SPEC CHECKSUMS:
+  Fritz: b582c55d6d4f823dfb87cafc7823d3b8067dad37
+
+PODFILE CHECKSUM: 7cb4bdc99729cf4b1e2564235c0a56ef095c7939
+
+COCOAPODS: 1.6.1

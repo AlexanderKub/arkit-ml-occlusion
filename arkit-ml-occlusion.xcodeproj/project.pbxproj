@@ -13,6 +13,8 @@
 		11B8201A2256256E00A152D9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B820182256256E00A152D9 /* Main.storyboard */; };
 		11B8201C2256256F00A152D9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 11B8201B2256256F00A152D9 /* Assets.xcassets */; };
 		11B8201F2256256F00A152D9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 11B8201D2256256F00A152D9 /* LaunchScreen.storyboard */; };
+		11B820272256285B00A152D9 /* Fritz-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 11B820262256285B00A152D9 /* Fritz-Info.plist */; };
+		C9BB3FDDA813B690A5BA5CEB /* Pods_arkit_ml_occlusion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C2257F98E68143C1A72232 /* Pods_arkit_ml_occlusion.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		11B8201B2256256F00A152D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11B8201E2256256F00A152D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11B820202256256F00A152D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		11B820262256285B00A152D9 /* Fritz-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Fritz-Info.plist"; sourceTree = "<group>"; };
+		39C2257F98E68143C1A72232 /* Pods_arkit_ml_occlusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arkit_ml_occlusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8419A497D2C8374C919C7969 /* Pods-arkit-ml-occlusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arkit-ml-occlusion.release.xcconfig"; path = "Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion.release.xcconfig"; sourceTree = "<group>"; };
+		A376190F2D2DAFAD809854CB /* Pods-arkit-ml-occlusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arkit-ml-occlusion.debug.xcconfig"; path = "Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9BB3FDDA813B690A5BA5CEB /* Pods_arkit_ml_occlusion.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +49,8 @@
 			children = (
 				11B820112256256E00A152D9 /* arkit-ml-occlusion */,
 				11B820102256256E00A152D9 /* Products */,
+				F3FFF45472F6BD17913D271F /* Pods */,
+				8AC200F4969075243F26C4A1 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -63,8 +72,26 @@
 				11B8201B2256256F00A152D9 /* Assets.xcassets */,
 				11B8201D2256256F00A152D9 /* LaunchScreen.storyboard */,
 				11B820202256256F00A152D9 /* Info.plist */,
+				11B820262256285B00A152D9 /* Fritz-Info.plist */,
 			);
 			path = "arkit-ml-occlusion";
+			sourceTree = "<group>";
+		};
+		8AC200F4969075243F26C4A1 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				39C2257F98E68143C1A72232 /* Pods_arkit_ml_occlusion.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F3FFF45472F6BD17913D271F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A376190F2D2DAFAD809854CB /* Pods-arkit-ml-occlusion.debug.xcconfig */,
+				8419A497D2C8374C919C7969 /* Pods-arkit-ml-occlusion.release.xcconfig */,
+			);
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 11B820232256256F00A152D9 /* Build configuration list for PBXNativeTarget "arkit-ml-occlusion" */;
 			buildPhases = (
+				A44D22E54A8A1E4C122ECA56 /* [CP] Check Pods Manifest.lock */,
 				11B8200B2256256E00A152D9 /* Sources */,
 				11B8200C2256256E00A152D9 /* Frameworks */,
 				11B8200D2256256E00A152D9 /* Resources */,
+				88DFC245825A85399C4F2859 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				11B820152256256E00A152D9 /* art.scnassets in Resources */,
+				11B820272256285B00A152D9 /* Fritz-Info.plist in Resources */,
 				11B8201F2256256F00A152D9 /* LaunchScreen.storyboard in Resources */,
 				11B8201C2256256F00A152D9 /* Assets.xcassets in Resources */,
 				11B8201A2256256E00A152D9 /* Main.storyboard in Resources */,
@@ -133,6 +163,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		88DFC245825A85399C4F2859 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion-frameworks.sh",
+				"${PODS_ROOT}/Fritz/Frameworks/FritzCore.framework",
+				"${PODS_ROOT}/Fritz/Frameworks/Fritz.framework",
+				"${PODS_ROOT}/Fritz/Frameworks/CoreMLHelpers.framework",
+				"${PODS_ROOT}/Fritz/Frameworks/FritzManagedModel.framework",
+				"${PODS_ROOT}/Fritz/Frameworks/FritzVision.framework",
+				"${PODS_ROOT}/Fritz/Frameworks/FritzVisionPeopleSegmentationModel.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzCore.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fritz.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreMLHelpers.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzManagedModel.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzVision.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzVisionPeopleSegmentationModel.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A44D22E54A8A1E4C122ECA56 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-arkit-ml-occlusion-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		11B8200B2256256E00A152D9 /* Sources */ = {
@@ -217,7 +304,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -272,7 +359,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -284,36 +371,40 @@
 		};
 		11B820242256256F00A152D9 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A376190F2D2DAFAD809854CB /* Pods-arkit-ml-occlusion.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4W3W3R34V2;
 				INFOPLIST_FILE = "arkit-ml-occlusion/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gutrits.arkit-ml-occlusion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		11B820252256256F00A152D9 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8419A497D2C8374C919C7969 /* Pods-arkit-ml-occlusion.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4W3W3R34V2;
 				INFOPLIST_FILE = "arkit-ml-occlusion/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.gutrits.arkit-ml-occlusion";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
