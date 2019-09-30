@@ -8,5 +8,14 @@ For run example project you must get a free account on [Fritz](https://www.fritz
 To run the example project, clone the repo, and run `pod install`.
 Build and run arkit-ml-occlusion project target.
 
+### Enviroment
+I using:
+- Xcode 10.3
+- Fritz 4.0.1
+
+Testing on:
+- iPhone SE
+- iOS 12.4.1
+
 ![screenshot1](https://github.com/AlexanderKub/arkit-ml-occlusion/raw/master/screenshots/screenshot01.jpeg)
 ![screenshot2](https://github.com/AlexanderKub/arkit-ml-occlusion/raw/master/screenshots/screenshot02.jpeg)

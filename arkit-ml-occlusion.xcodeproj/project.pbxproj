@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -26,7 +26,7 @@
 		11B8201B2256256F00A152D9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		11B8201E2256256F00A152D9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		11B820202256256F00A152D9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		11B820262256285B00A152D9 /* Fritz-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Fritz-Info.plist"; sourceTree = "<group>"; };
+		11B820262256285B00A152D9 /* Fritz-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "Fritz-Info.plist"; path = "../Fritz-Info.plist"; sourceTree = "<group>"; };
 		39C2257F98E68143C1A72232 /* Pods_arkit_ml_occlusion.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arkit_ml_occlusion.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8419A497D2C8374C919C7969 /* Pods-arkit-ml-occlusion.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arkit-ml-occlusion.release.xcconfig"; path = "Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion.release.xcconfig"; sourceTree = "<group>"; };
 		A376190F2D2DAFAD809854CB /* Pods-arkit-ml-occlusion.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arkit-ml-occlusion.debug.xcconfig"; path = "Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion.debug.xcconfig"; sourceTree = "<group>"; };
@@ -171,26 +171,11 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion-frameworks.sh",
-				"${PODS_ROOT}/Fritz/Frameworks/FritzCore.framework",
-				"${PODS_ROOT}/Fritz/Frameworks/Fritz.framework",
-				"${PODS_ROOT}/Fritz/Frameworks/CoreMLHelpers.framework",
-				"${PODS_ROOT}/Fritz/Frameworks/FritzManagedModel.framework",
-				"${PODS_ROOT}/Fritz/Frameworks/FritzVision.framework",
-				"${PODS_ROOT}/Fritz/Frameworks/FritzVisionPeopleSegmentationModel.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzCore.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Fritz.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CoreMLHelpers.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzManagedModel.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzVision.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FritzVisionPeopleSegmentationModel.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-arkit-ml-occlusion/Pods-arkit-ml-occlusion-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -311,6 +296,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -365,6 +351,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

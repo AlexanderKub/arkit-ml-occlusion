@@ -15,13 +15,13 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
 
     @IBOutlet var sceneView: ARSCNView!
     
-    private lazy var visionModel = FritzVisionPeopleSegmentationModel()
+    private lazy var visionModel = FritzVisionPeopleSegmentationModelFast()
     
     var planes = [ARPlaneAnchor: SCNNode]()
     var planeColor = UIColor.init(hue: 0.5, saturation: 0.5, brightness: 0.5, alpha: 0.5)
     
-    var maskNode : SCNNode!;
-    var maskMaterial : SCNMaterial!;
+    var maskNode : SCNNode!
+    var maskMaterial : SCNMaterial!
     
     var currentBuffer: CVPixelBuffer?
     
@@ -93,7 +93,7 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     func bilbordCreate() {
         maskMaterial = SCNMaterial()
-        maskMaterial.diffuse.contents = UIColor.red
+        maskMaterial.diffuse.contents = UIColor.white
         maskMaterial.colorBufferWriteMask = .alpha
         
         let rectangle = SCNPlane(width: 0.0326, height: 0.058)
@@ -109,52 +109,62 @@ class ViewController: UIViewController, ARSCNViewDelegate, ARSessionDelegate {
     
     let visionQueue = DispatchQueue(label: "com.vision.ARML.visionqueue")
     
-    func pixelBufferToUIImage(pixelBuffer: CVPixelBuffer) -> UIImage {
-        let ciImage = CIImage(cvPixelBuffer: pixelBuffer)
+    //TODO: posible optimization
+    func convertCIImageToCGImage(inputImage: CIImage) -> CGImage? {
         let context = CIContext(options: nil)
-        let cgImage = context.createCGImage(ciImage, from: ciImage.extent)
-        let uiImage = UIImage(cgImage: cgImage!)
-        return uiImage
+        if let cgImage = context.createCGImage(inputImage, from: inputImage.extent) {
+            return cgImage
+        }
+        return nil
     }
     
     private func startDetection() {
         // To avoid force unwrap in VNImageRequestHandler
         guard let buffer = currentBuffer else { return }
         
-        let image = FritzVisionImage(image: pixelBufferToUIImage(pixelBuffer: buffer))
+        let image = FritzVisionImage(imageBuffer: buffer)
         image.metadata = FritzVisionImageMetadata()
         let options = FritzVisionSegmentationModelOptions()
         options.imageCropAndScaleOption = .scaleFit
         
+        //Run in background thread
         visionQueue.async {
-            // Run our CoreML Request
-            self.visionModel.predict(image, options: options) { [weak self] (mask, error) in
-                guard let mask = mask else { return }
-                let maskImage = mask.toImageMask(of: FritzVisionPeopleClass.person, threshold: 0.70, minThresholdAccepted: 0.30)
-                DispatchQueue.main.async {
-                    self?.maskMaterial.diffuse.contents = maskImage
-                }
-            }
-            
-            // The resulting image (mask) is available as observation.pixelBuffer
-            // Release currentBuffer when finished to allow processing next frame
-            self.currentBuffer = nil
+            self.CoreMLRequest(image: image, options: options)
         }
     }
     
-    func session(_ session: ARSession, didFailWithError error: Error) {
-        // Present an error message to the user
+    private func CoreMLRequest(image : FritzVisionImage, options : FritzVisionSegmentationModelOptions) {
         
+        guard let result = try? self.visionModel.predict(image, options: options) else {
+            self.ReleaseBuffer()
+            return
+        }
+        
+        let maskImage = result.buildSingleClassMask(
+            forClass: FritzVisionPeopleClass.person,
+            clippingScoresAbove: 0.7,
+            zeroingScoresBelow: 0.3)
+        
+        guard let CIRef = maskImage?.ciImage else {
+            self.ReleaseBuffer()
+            return
+        }
+        guard let maskCGImage: CGImage = self.convertCIImageToCGImage(inputImage: CIRef) else {
+            self.ReleaseBuffer()
+            return
+        }
+        
+        DispatchQueue.main.async {
+            self.maskMaterial.diffuse.contents = maskCGImage
+        }
+        
+        self.ReleaseBuffer()
     }
     
-    func sessionWasInterrupted(_ session: ARSession) {
-        // Inform the user that the session has been interrupted, for example, by presenting an overlay
-        
-    }
-    
-    func sessionInterruptionEnded(_ session: ARSession) {
-        // Reset tracking and/or remove existing anchors if consistent tracking is required
-        
+    private func ReleaseBuffer() {
+        // The resulting image (mask) is available as observation.pixelBuffer
+        // Release currentBuffer when finished to allow processing next frame
+        self.currentBuffer = nil
     }
     
     func renderer(_ renderer: SCNSceneRenderer, didAdd node: SCNNode, for anchor: ARAnchor) {
